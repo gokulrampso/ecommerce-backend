@@ -23,6 +23,9 @@ describe('PaymentController', () => {
   });
 
   it('should simulate payment', async () => {
-    expect(await controller.simulatePayment({ amount: 100 })).toHaveProperty('status', 'success');
+    expect(await controller.simulatePayment({ amount: 100 })).toHaveProperty(
+      'status',
+      'success',
+    );
   });
-}); 
+});

@@ -27,4 +27,4 @@ export class ProductService {
     // Implement remove logic
     return { message: 'Product removed (mock)' };
   }
-} 
+}

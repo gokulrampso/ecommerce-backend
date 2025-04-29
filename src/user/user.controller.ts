@@ -1,6 +1,20 @@
-import { Controller, Post, Body, Put, Get, UseGuards, Req } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Put,
+  Get,
+  UseGuards,
+  Req,
+} from '@nestjs/common';
 import { UserService } from './user.service';
-import { RegisterDto, LoginDto, UpdateProfileDto, ForgotPasswordDto, ResetPasswordDto } from './user.dto';
+import {
+  RegisterDto,
+  LoginDto,
+  UpdateProfileDto,
+  ForgotPasswordDto,
+  ResetPasswordDto,
+} from './user.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Request } from 'express';
 
@@ -34,4 +48,4 @@ export class UserController {
   async resetPassword(@Body() dto: ResetPasswordDto) {
     return this.userService.resetPassword(dto);
   }
-} 
+}

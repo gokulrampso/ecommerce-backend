@@ -6,8 +6,14 @@ describe('SeedService', () => {
   let productModel: any;
 
   beforeEach(() => {
-    userModel = { countDocuments: jest.fn().mockResolvedValue(0), insertMany: jest.fn() };
-    productModel = { countDocuments: jest.fn().mockResolvedValue(0), insertMany: jest.fn() };
+    userModel = {
+      countDocuments: jest.fn().mockResolvedValue(0),
+      insertMany: jest.fn(),
+    };
+    productModel = {
+      countDocuments: jest.fn().mockResolvedValue(0),
+      insertMany: jest.fn(),
+    };
     service = new SeedService(userModel, productModel);
   });
 
@@ -16,4 +22,4 @@ describe('SeedService', () => {
     expect(userModel.insertMany).toHaveBeenCalled();
     expect(productModel.insertMany).toHaveBeenCalled();
   });
-}); 
+});

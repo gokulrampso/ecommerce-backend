@@ -27,4 +27,4 @@ export class Product {
   stock: number;
 }
 
-export const ProductSchema = SchemaFactory.createForClass(Product); 
+export const ProductSchema = SchemaFactory.createForClass(Product);

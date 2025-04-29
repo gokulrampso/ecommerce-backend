@@ -8,15 +8,22 @@ describe('HttpExceptionFilter', () => {
     const mockStatus = jest.fn(() => ({ json: mockJson }));
     const mockGetResponse = jest.fn(() => ({ status: mockStatus }));
     const mockGetRequest = jest.fn(() => ({ method: 'GET', url: '/test' }));
-    const mockSwitchToHttp = jest.fn(() => ({ getResponse: mockGetResponse, getRequest: mockGetRequest }));
-    const mockHost = { switchToHttp: mockSwitchToHttp } as unknown as ArgumentsHost;
+    const mockSwitchToHttp = jest.fn(() => ({
+      getResponse: mockGetResponse,
+      getRequest: mockGetRequest,
+    }));
+    const mockHost = {
+      switchToHttp: mockSwitchToHttp,
+    } as unknown as ArgumentsHost;
     const exception = new HttpException('Test error', HttpStatus.BAD_REQUEST);
     filter.catch(exception, mockHost);
     expect(mockStatus).toHaveBeenCalledWith(HttpStatus.BAD_REQUEST);
-    expect(mockJson).toHaveBeenCalledWith(expect.objectContaining({
-      statusCode: HttpStatus.BAD_REQUEST,
-      path: '/test',
-      message: 'Test error',
-    }));
+    expect(mockJson).toHaveBeenCalledWith(
+      expect.objectContaining({
+        statusCode: HttpStatus.BAD_REQUEST,
+        path: '/test',
+        message: 'Test error',
+      }),
+    );
   });
-}); 
+});

@@ -29,12 +29,25 @@ describe('OrderController', () => {
   });
 
   it('should place order', async () => {
-    expect(await controller.placeOrder({ user: { userId: 'id' } } as any, { items: [{ productId: 'pid', quantity: 1 }], shippingAddress: 'addr', paymentMethod: 'card' })).toHaveProperty('message');
+    expect(
+      await controller.placeOrder({ user: { userId: 'id' } } as any, {
+        items: [{ productId: 'pid', quantity: 1 }],
+        shippingAddress: 'addr',
+        paymentMethod: 'card',
+      }),
+    ).toHaveProperty('message');
   });
   it('should get order history', async () => {
-    expect(await controller.getOrderHistory({ user: { userId: 'id' } } as any)).toHaveProperty('orders');
+    expect(
+      await controller.getOrderHistory({ user: { userId: 'id' } } as any),
+    ).toHaveProperty('orders');
   });
   it('should cancel order', async () => {
-    expect(await controller.cancelOrder({ user: { userId: 'id' } } as any, 'orderId')).toHaveProperty('message');
+    expect(
+      await controller.cancelOrder(
+        { user: { userId: 'id' } } as any,
+        'orderId',
+      ),
+    ).toHaveProperty('message');
   });
-}); 
+});

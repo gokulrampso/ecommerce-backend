@@ -9,4 +9,4 @@ export class PaymentController {
   async simulatePayment(@Body() body: any) {
     return this.paymentService.simulatePayment(body);
   }
-} 
+}

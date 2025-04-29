@@ -37,12 +37,16 @@ describe('UserController', () => {
     expect(await controller.login({} as any)).toHaveProperty('accessToken');
   });
   it('should update profile', async () => {
-    expect(await controller.updateProfile({ user: { userId: 'id' } } as any, {})).toHaveProperty('message');
+    expect(
+      await controller.updateProfile({ user: { userId: 'id' } } as any, {}),
+    ).toHaveProperty('message');
   });
   it('should forgot password', async () => {
-    expect(await controller.forgotPassword({} as any)).toHaveProperty('message');
+    expect(await controller.forgotPassword({} as any)).toHaveProperty(
+      'message',
+    );
   });
   it('should reset password', async () => {
     expect(await controller.resetPassword({} as any)).toHaveProperty('message');
   });
-}); 
+});

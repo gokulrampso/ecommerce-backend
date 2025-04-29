@@ -30,15 +30,28 @@ describe('CartController', () => {
   });
 
   it('should add item', async () => {
-    expect(await controller.addItem({ user: { userId: 'id' } } as any, { productId: 'pid', quantity: 1 })).toHaveProperty('message');
+    expect(
+      await controller.addItem({ user: { userId: 'id' } } as any, {
+        productId: 'pid',
+        quantity: 1,
+      }),
+    ).toHaveProperty('message');
   });
   it('should update item', async () => {
-    expect(await controller.updateItem({ user: { userId: 'id' } } as any, 'itemId', { quantity: 2 })).toHaveProperty('message');
+    expect(
+      await controller.updateItem({ user: { userId: 'id' } } as any, 'itemId', {
+        quantity: 2,
+      }),
+    ).toHaveProperty('message');
   });
   it('should remove item', async () => {
-    expect(await controller.removeItem({ user: { userId: 'id' } } as any, 'itemId')).toHaveProperty('message');
+    expect(
+      await controller.removeItem({ user: { userId: 'id' } } as any, 'itemId'),
+    ).toHaveProperty('message');
   });
   it('should get cart', async () => {
-    expect(await controller.getCart({ user: { userId: 'id' } } as any)).toHaveProperty('items');
+    expect(
+      await controller.getCart({ user: { userId: 'id' } } as any),
+    ).toHaveProperty('items');
   });
-}); 
+});

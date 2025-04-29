@@ -6,12 +6,15 @@ import { SeedService } from './seed.service';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([
-      { name: User.name, schema: UserSchema },
-      { name: Product.name, schema: ProductSchema },
-    ], 'mongodbconn'),
+    MongooseModule.forFeature(
+      [
+        { name: User.name, schema: UserSchema },
+        { name: Product.name, schema: ProductSchema },
+      ],
+      'mongodbconn',
+    ),
   ],
   providers: [SeedService],
   exports: [SeedService],
 })
-export class SeedModule {} 
+export class SeedModule {}

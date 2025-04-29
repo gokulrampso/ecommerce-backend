@@ -9,7 +9,14 @@ describe('ProductService', () => {
   });
 
   it('should create a product', async () => {
-    const dto: CreateProductDto = { name: 'Test', description: 'desc', price: 10, category: 'cat', brand: 'brand', stock: 1 };
+    const dto: CreateProductDto = {
+      name: 'Test',
+      description: 'desc',
+      price: 10,
+      category: 'cat',
+      brand: 'brand',
+      stock: 1,
+    };
     const result = await service.create(dto);
     expect(result).toHaveProperty('message');
   });
@@ -37,7 +44,13 @@ describe('ProductService', () => {
 
   // Failure scenarios (mocked)
   it('should fail to create with missing name', async () => {
-    const dto: any = { description: 'desc', price: 10, category: 'cat', brand: 'brand', stock: 1 };
+    const dto: any = {
+      description: 'desc',
+      price: 10,
+      category: 'cat',
+      brand: 'brand',
+      stock: 1,
+    };
     await expect(service.create(dto)).resolves.toHaveProperty('message');
   });
-}); 
+});

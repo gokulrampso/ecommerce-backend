@@ -16,4 +16,4 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     // Mock validation: return userId from payload
     return { userId: payload.sub, email: payload.email, roles: payload.roles };
   }
-} 
+}

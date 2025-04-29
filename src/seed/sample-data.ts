@@ -128,4 +128,4 @@ export const sampleCarts = [
 
 export const sampleOrders = [
   // Example: { user: userId, items: [{ product: productId, quantity: 1 }], shippingAddress: '...', paymentMethod: 'card', status: 'pending' }
-]; 
+];

@@ -1,5 +1,11 @@
 import { UserService } from '../user/user.service';
-import { RegisterDto, LoginDto, UpdateProfileDto, ForgotPasswordDto, ResetPasswordDto } from '../user/user.dto';
+import {
+  RegisterDto,
+  LoginDto,
+  UpdateProfileDto,
+  ForgotPasswordDto,
+  ResetPasswordDto,
+} from '../user/user.dto';
 
 describe('UserService', () => {
   let service: UserService;
@@ -9,7 +15,11 @@ describe('UserService', () => {
   });
 
   it('should register a user', async () => {
-    const dto: RegisterDto = { email: 'test@example.com', password: 'password', name: 'Test' };
+    const dto: RegisterDto = {
+      email: 'test@example.com',
+      password: 'password',
+      name: 'Test',
+    };
     const result = await service.register(dto);
     expect(result).toHaveProperty('message');
   });
@@ -40,7 +50,11 @@ describe('UserService', () => {
 
   // Failure scenarios (mocked)
   it('should fail to register with invalid email', async () => {
-    const dto: RegisterDto = { email: 'bad', password: 'password', name: 'Test' };
+    const dto: RegisterDto = {
+      email: 'bad',
+      password: 'password',
+      name: 'Test',
+    };
     await expect(service.register(dto)).resolves.toHaveProperty('message');
   });
-}); 
+});

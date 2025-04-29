@@ -19,13 +19,17 @@ describe('main.ts bootstrap', () => {
       useGlobalPipes: jest.fn(),
       listen: jest.fn().mockResolvedValue(undefined),
     };
-    createSpy = jest.spyOn(nestCore.NestFactory, 'create').mockResolvedValue(appMock as any);
+    createSpy = jest
+      .spyOn(nestCore.NestFactory, 'create')
+      .mockResolvedValue(appMock as any);
     enableCorsSpy = jest.spyOn(appMock, 'enableCors');
     useSpy = jest.spyOn(appMock, 'use');
     useGlobalPipesSpy = jest.spyOn(appMock, 'useGlobalPipes');
     listenSpy = jest.spyOn(appMock, 'listen');
     setupSpy = jest.spyOn(swagger.SwaggerModule, 'setup').mockImplementation();
-    createDocumentSpy = jest.spyOn(swagger.SwaggerModule, 'createDocument').mockReturnValue({} as any);
+    createDocumentSpy = jest
+      .spyOn(swagger.SwaggerModule, 'createDocument')
+      .mockReturnValue({} as any);
   });
 
   afterAll(() => {
@@ -38,10 +42,12 @@ describe('main.ts bootstrap', () => {
       expect(createSpy).toHaveBeenCalled();
       expect(enableCorsSpy).toHaveBeenCalled();
       expect(useSpy).toHaveBeenCalled();
-      expect(useGlobalPipesSpy).toHaveBeenCalledWith(expect.any(ValidationPipe));
+      expect(useGlobalPipesSpy).toHaveBeenCalledWith(
+        expect.any(ValidationPipe),
+      );
       expect(createDocumentSpy).toHaveBeenCalled();
       expect(setupSpy).toHaveBeenCalled();
       expect(listenSpy).toHaveBeenCalled();
     });
   });
-}); 
+});

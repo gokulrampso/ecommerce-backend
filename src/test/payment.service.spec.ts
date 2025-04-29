@@ -17,4 +17,4 @@ describe('PaymentService', () => {
     const result = await service.simulatePayment({ amount: 0 });
     expect(result).toHaveProperty('status');
   });
-}); 
+});

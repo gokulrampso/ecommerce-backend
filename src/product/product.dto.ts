@@ -1,4 +1,10 @@
-import { IsString, IsNumber, IsOptional, Min, IsMongoId } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsOptional,
+  Min,
+  IsMongoId,
+} from 'class-validator';
 
 export class CreateProductDto {
   @IsString()
@@ -56,4 +62,4 @@ export class UpdateProductDto {
   @IsNumber()
   @Min(0)
   stock?: number;
-} 
+}

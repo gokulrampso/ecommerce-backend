@@ -22,4 +22,4 @@ export class CartService {
     // Implement get cart logic
     return { items: [] };
   }
-} 
+}

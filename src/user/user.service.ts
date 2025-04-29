@@ -1,5 +1,11 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { RegisterDto, LoginDto, UpdateProfileDto, ForgotPasswordDto, ResetPasswordDto } from './user.dto';
+import {
+  RegisterDto,
+  LoginDto,
+  UpdateProfileDto,
+  ForgotPasswordDto,
+  ResetPasswordDto,
+} from './user.dto';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -9,7 +15,8 @@ import { User, UserDocument } from './user.schema';
 @Injectable()
 export class UserService {
   constructor(
-    @InjectModel(User.name, 'mongodbconn') private userModel: Model<UserDocument>,
+    @InjectModel(User.name, 'mongodbconn')
+    private userModel: Model<UserDocument>,
     private jwtService: JwtService,
   ) {}
 
@@ -44,4 +51,4 @@ export class UserService {
     // Implement reset password logic
     return { message: 'Password reset (mock)' };
   }
-} 
+}

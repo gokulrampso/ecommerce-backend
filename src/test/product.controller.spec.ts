@@ -41,4 +41,4 @@ describe('ProductController', () => {
   it('should remove', async () => {
     expect(await controller.remove('id')).toHaveProperty('message');
   });
-}); 
+});

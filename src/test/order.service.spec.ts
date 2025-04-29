@@ -9,7 +9,11 @@ describe('OrderService', () => {
   });
 
   it('should place an order', async () => {
-    const dto: PlaceOrderDto = { items: [{ productId: 'pid', quantity: 1 }], shippingAddress: 'addr', paymentMethod: 'card' };
+    const dto: PlaceOrderDto = {
+      items: [{ productId: 'pid', quantity: 1 }],
+      shippingAddress: 'addr',
+      paymentMethod: 'card',
+    };
     const result = await service.placeOrder('userId', dto);
     expect(result).toHaveProperty('message');
   });
@@ -26,7 +30,13 @@ describe('OrderService', () => {
 
   // Failure scenarios (mocked)
   it('should fail to place order with empty items', async () => {
-    const dto: PlaceOrderDto = { items: [], shippingAddress: 'addr', paymentMethod: 'card' };
-    await expect(service.placeOrder('userId', dto)).resolves.toHaveProperty('message');
+    const dto: PlaceOrderDto = {
+      items: [],
+      shippingAddress: 'addr',
+      paymentMethod: 'card',
+    };
+    await expect(service.placeOrder('userId', dto)).resolves.toHaveProperty(
+      'message',
+    );
   });
-}); 
+});

@@ -20,4 +20,4 @@ export class Cart {
   items: CartItem[];
 }
 
-export const CartSchema = SchemaFactory.createForClass(Cart); 
+export const CartSchema = SchemaFactory.createForClass(Cart);

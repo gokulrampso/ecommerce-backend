@@ -6,4 +6,4 @@ export class PaymentService {
     // Simulate payment logic
     return { status: 'success', message: 'Payment simulated (mock)' };
   }
-} 
+}

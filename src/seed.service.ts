@@ -10,8 +10,10 @@ export class SeedService implements OnModuleInit {
   private readonly logger = new Logger(SeedService.name);
 
   constructor(
-    @InjectModel(User.name, 'mongodbconn') private userModel: Model<UserDocument>,
-    @InjectModel(Product.name, 'mongodbconn') private productModel: Model<ProductDocument>,
+    @InjectModel(User.name, 'mongodbconn')
+    private userModel: Model<UserDocument>,
+    @InjectModel(Product.name, 'mongodbconn')
+    private productModel: Model<ProductDocument>,
   ) {}
 
   async onModuleInit() {
@@ -28,4 +30,4 @@ export class SeedService implements OnModuleInit {
       this.logger.log('Seeded sample products');
     }
   }
-} 
+}

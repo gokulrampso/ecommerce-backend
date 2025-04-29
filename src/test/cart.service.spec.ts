@@ -33,6 +33,8 @@ describe('CartService', () => {
   // Failure scenarios (mocked)
   it('should fail to add item with invalid productId', async () => {
     const dto: AddCartItemDto = { productId: '', quantity: 1 };
-    await expect(service.addItem('userId', dto)).resolves.toHaveProperty('message');
+    await expect(service.addItem('userId', dto)).resolves.toHaveProperty(
+      'message',
+    );
   });
-}); 
+});

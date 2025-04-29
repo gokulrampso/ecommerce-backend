@@ -1,4 +1,11 @@
-import { IsArray, ValidateNested, IsString, IsMongoId, IsInt, Min } from 'class-validator';
+import {
+  IsArray,
+  ValidateNested,
+  IsString,
+  IsMongoId,
+  IsInt,
+  Min,
+} from 'class-validator';
 import { Type } from 'class-transformer';
 
 class OrderItemDto {
@@ -21,4 +28,4 @@ export class PlaceOrderDto {
 
   @IsString()
   paymentMethod: string;
-} 
+}

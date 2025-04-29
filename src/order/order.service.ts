@@ -17,4 +17,4 @@ export class OrderService {
     // Implement cancel order logic
     return { message: 'Order cancelled (mock)' };
   }
-} 
+}
