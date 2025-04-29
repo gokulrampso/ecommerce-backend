@@ -9,7 +9,7 @@ import { SeedService } from './seed.service';
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
       { name: Product.name, schema: ProductSchema },
-    ]),
+    ], 'mongodbconn'),
   ],
   providers: [SeedService],
   exports: [SeedService],
