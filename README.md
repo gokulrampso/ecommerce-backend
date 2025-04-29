@@ -115,6 +115,24 @@ Production-ready e-commerce backend API built with NestJS and MongoDB (Mongoose)
 - Install MongoDB locally or use [MongoDB Atlas](https://www.mongodb.com/atlas/database).
 - Create a database manually (no automation required).
 
+## Named MongoDB Connection
+- This project uses a **named MongoDB connection** called `'mongodbconn'`.
+- All Mongoose modules and model injections use this connection name.
+- If you change the connection name in the code, update it everywhere in the codebase and in this README.
+
+**Example configuration in `app.module.ts`:**
+```ts
+MongooseModule.forRoot(process.env.MONGODB_URI, { connectionName: 'mongodbconn' })
+```
+**Example usage in feature modules:**
+```ts
+MongooseModule.forFeature([{ name: User.name, schema: UserSchema }], 'mongodbconn')
+```
+**Example usage in services:**
+```ts
+@InjectModel(User.name, 'mongodbconn') private userModel: Model<UserDocument>
+```
+
 ## Environment Variables
 Create a `.env` file in the root:
 ```
@@ -124,7 +142,7 @@ PORT=3000
 ```
 
 ## Seeding Sample Data
-On app startup, the database will be seeded with sample users, products, and categories if collections are empty.
+On app startup, the database will be seeded with sample users, products, categories, carts, and orders if collections are empty.
 
 ## Running the App
 ```
